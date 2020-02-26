@@ -1,0 +1,30 @@
+﻿<Window x:Class="DataGridBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataGridBinding"
+        Title="MainWindow" Height="800" Width="882">
+    <Grid>
+
+        <DataGrid Name="dg_data_grid" CanUserAddRows="False" AutoGenerateColumns="False"
+                  DataContext="{Binding Source={x:Static Application.Current},Path=MembersViewModel}"
+                  ItemsSource="{Binding Members}"
+                  SelectedItem="{Binding SelectedMember, Mode=TwoWay}"
+
+                  Height="600"
+                  VerticalAlignment="Top" Background="{x:Null}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding BindName}" Width="100" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Percent" Binding="{Binding BindInsto}" Width="100" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding BindDescription}" Width="100" IsReadOnly="True"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <Button Name="btn_chart_analysis" Content="Chart" Width="100" Height="50" Margin="10,666,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Button Name="btn_add" Content="Add" Width="100" Height="50" Margin="237,666,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Button Name="btn_add_sql_segment" Content="Add SQL SEG" Width="100" Height="50" Margin="457,666,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+    </Grid>
+</Window>
